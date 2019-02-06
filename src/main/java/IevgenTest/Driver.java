@@ -1,5 +1,6 @@
 package IevgenTest;
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,9 +20,7 @@ public class Driver {
 
         String url = "https://dom.ria.com/ru/search/";
         driver.get(url);
-        System.out.println("Page opens!");
-
-
+        Allure.addAttachment("driver starts", "initial page: " +url);
     }
 
     public static WebDriver get() {
