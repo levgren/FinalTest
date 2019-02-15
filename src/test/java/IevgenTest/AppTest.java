@@ -10,16 +10,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AppTest {
-    MainPage mainPage = new MainPage();
+    MainPage mainPage = new MainPage("https://dom.ria.com/ru/search/");
+
     @Test
     public void TestOne() {
-        mainPage.goTo("https://dom.ria.com/ru/search/");
-//        if (mainPage.NumberOfElements()==20){
-//            System.out.println("ebtvojumat!");
-//        }
-//        else{
-//            System.out.println("govno");
-//        }
+        boolean x = mainPage.SelectTypeofEstate()
+                .NumberOfAds();
+        assert (x);
+        mainPage.ChangeNumberOfAds();
+
 
 
 
