@@ -1,26 +1,20 @@
 package IevgenTest;
 
-import io.qameta.allure.Allure;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
-    private static Driver ourInstance = new Driver();
 
-    public static WebDriver driver;
+    private static WebDriver driver;
 
     private Driver() {
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
         driver = new ChromeDriver();
 
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        String url = "https://dom.ria.com/ru/search/";
-        driver.get(url);
-        Allure.addAttachment("driver starts", "initial page: " +url);
+        //Allure.addAttachment("driver starts", "initial page: " +url);
     }
 
     public static WebDriver get() {
