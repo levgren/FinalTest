@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class MainPage  {
     static WebDriver driver = Driver.get();
 
@@ -24,7 +26,7 @@ public class MainPage  {
         driver.get(url);
         typeOfEstateDropdown = driver.findElement(By.cssSelector("#leftFilter .box-panel:nth-child(5) .css-pseudoselect"));
         typeOfEstate = driver.findElement(By.cssSelector("#leftFilter .options .catType:nth-of-type(2)"));
-        numberOfAdsToDisplay = driver.findElement(By.xpath("/html//div[@id='pagination']//a[.='20 объявлений']"));  //show 20 ads link
+        numberOfAdsToDisplay = (WebElement) driver.findElements(By.xpath("/html//div[@id='pagination']//a[.='20 объявлений']"));  //show 20 ads link
         amountOfResults = driver.findElement(By.xpath("//div[contains(@class, 'ticket-clear')]"));   //path to ads
         selectNumberOfAds = driver.findElement(By.cssSelector("[data-value='10']"));   //path to ads
 
@@ -40,7 +42,8 @@ public class MainPage  {
         return Utils.substringInt(getValue);
     }
     public Boolean NumberOfAds() {
-        if(amountOfResults.getSize().equals(NumberOfElementsOnThePage())) {
+        List <WebElement> elements = (List<WebElement>) amountOfResults.getSize();
+        if(elements.equals(NumberOfElementsOnThePage())) {
             return true;
         }
         else{
