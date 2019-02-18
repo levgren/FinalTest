@@ -14,10 +14,13 @@ public class AppTest {
 
     @Test
     public void TestOne() {
-        boolean x = mainPage.SelectTypeofEstate()
+
+        mainPage.SelectTypeofEstate()
                 .NumberOfAds();
-        assert (x);
-        mainPage.ChangeNumberOfAds();
+        mainPage.ChangeNumberOfAds()
+                .NumberOfElementsOnThePage();
+        mainPage.NumberOfAds();
+
 
 
 
