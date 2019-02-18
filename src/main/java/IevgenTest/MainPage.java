@@ -13,7 +13,7 @@ public class MainPage  {
     private WebElement typeOfEstateDropdown;
     private WebElement typeOfEstate;
     private WebElement numberOfAdsToDisplay;
-    private WebElement amountOfResults;
+    private List <WebElement> results;
     private WebElement dropDown;
     private WebElement selectNumberOfAds;
 
@@ -26,8 +26,8 @@ public class MainPage  {
         driver.get(url);
         typeOfEstateDropdown = driver.findElement(By.cssSelector("#leftFilter .box-panel:nth-child(5) .css-pseudoselect"));
         typeOfEstate = driver.findElement(By.cssSelector("#leftFilter .options .catType:nth-of-type(2)"));
-        numberOfAdsToDisplay = (WebElement) driver.findElements(By.xpath("/html//div[@id='pagination']//a[.='20 объявлений']"));  //show 20 ads link
-        amountOfResults = driver.findElement(By.xpath("//div[contains(@class, 'ticket-clear')]"));   //path to ads
+        numberOfAdsToDisplay = driver.findElement(By.xpath("/html//div[@id='pagination']//a[.='20 объявлений']"));  //show 20 ads link
+        results = driver.findElements(By.xpath("//div[contains(@class, 'ticket-clear')]"));   //path to ads
         selectNumberOfAds = driver.findElement(By.cssSelector("[data-value='10']"));   //path to ads
 
     }
@@ -40,15 +40,10 @@ public class MainPage  {
     public Integer NumberOfElementsOnThePage(){
        String getValue = numberOfAdsToDisplay.getText();
         return Utils.substringInt(getValue);
+
     }
-    public Boolean NumberOfAds() {
-        List <WebElement> elements = (List<WebElement>) amountOfResults.getSize();
-        if(elements.equals(NumberOfElementsOnThePage())) {
-            return true;
-        }
-        else{
-            return false;
-        }
+    public int NumberOfAds() {
+       return results.size();
     }
     public MainPage ChangeNumberOfAds() throws InterruptedException {
         Thread.sleep(5000);
