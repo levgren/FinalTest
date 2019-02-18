@@ -13,7 +13,7 @@ public class AppTest {
     MainPage mainPage = new MainPage("https://dom.ria.com/ru/search/");
 
     @Test
-    public void TestOne() {
+    public void TestOne() throws InterruptedException {
 
         mainPage.SelectTypeofEstate()
                 .NumberOfAds();

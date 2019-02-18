@@ -47,9 +47,10 @@ public class MainPage  {
             return false;
         }
     }
-    public MainPage ChangeNumberOfAds(){
+    public MainPage ChangeNumberOfAds() throws InterruptedException {
+        Thread.sleep(5000);
         JavascriptExecutor scroll = ((JavascriptExecutor) driver);
-        scroll.executeScript("window.scrollTo(0, document.body.scrollHeight)"); //скроллим вниз страницы
+        scroll.executeScript("window.scrollTo(0, document.body.scrollHeight)");     //скроллим вниз страницы
        numberOfAdsToDisplay.click();
         System.out.println("click the link 'number of ads'");
        selectNumberOfAds.click();
