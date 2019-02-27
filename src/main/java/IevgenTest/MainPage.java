@@ -17,6 +17,9 @@ public class MainPage  {
     private WebElement dropDown;
     private WebElement selectNumberOfAds;
 
+    public MainPage() {
+    }
+
 
     public MainPage goTo(String url) {
         driver.get(url);

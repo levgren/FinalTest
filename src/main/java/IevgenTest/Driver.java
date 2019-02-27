@@ -18,7 +18,7 @@ public class Driver {
     }
 
     public static WebDriver get() {
-        if(driver==null)
+        if (driver == null)
             new Driver();
         return driver;
     }
